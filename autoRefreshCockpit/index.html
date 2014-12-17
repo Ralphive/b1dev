@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Auto Refresh B1 Cockpit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link
+	href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="js/commands.js" defer="" type="text/javascript"></script>
+</head>
+
+<body>
+	<!-- 16:9 aspect ratio -->
+	<div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <a class="active btn btn-block btn-lg btn-success" id="startnow" data-toggle="modal"
+          data-target="#connectModal" style="">Start
+					Now!</a>
+        </div>
+        <div class="col-md-2 text-left">
+          <a class="active btn  btn-block btn-lg btn-primary" id="Refresh" href="#"><span class="glyphicon glyphicon-refresh"></span>Start &nbsp;<br></a>
+        </div>
+      </div>
+    </div>
+    
+	<div class="embed-responsive embed-responsive-16by9" id="cockpitDiv"
+		style="">
+		<div class="div"></div>
+	</div>
+	<div class="fade modal text-left" id="connectModal" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+		draggable="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Your B1 on HANA
+						Server information</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" action="" draggable="true">
+						<div class="form-group">
+							<label for="HanaServer">Hana Server IP or Hostname</label> <input
+								type="text" class="form-control" id="HanaServer"
+								placeholder="ex: 192.168.0.1 or hanab1..."> <label
+								for="RefreshTime">Refresh Interval (seconds)</label> <input
+								type="number" class="form-control" id="RefreshTime"
+								placeholder="Refresh interval">
+						</div>
+						<div class="modal-footer">
+							<a class="btn btn-primary" id="connect">OK</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
