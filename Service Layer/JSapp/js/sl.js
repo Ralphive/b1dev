@@ -31,9 +31,9 @@ $(document).ready(function(){
 			break;
 		case "getItem":
 			getItem(false);
-			break;	        
-		};	
-	});
+			break;       
+        }
+    });
 
 	$("#getBPList").click(function(){
 		if(!connected){
@@ -91,6 +91,10 @@ function connectSL(){
 		// the URL for the request
 		url: SLServer+"Login",
 
+        xhrFields: {
+            withCredentials: true
+        },
+            
 		// the data to send (will be converted to a query string)
 
 		data: jData,
@@ -124,7 +128,7 @@ function connectSL(){
 
 		// code to run regardless of success or failure
 		complete: function( xhr, status ) {
-			alert(complete);
+			//alert(complete);
 			// Nothing for now.
 		}
 	});
@@ -144,7 +148,10 @@ function postBP() {
 
 	$.ajax({
 		url: SLServer+"BusinessPartners",		
-		data: jData,
+		xhrFields: {
+            withCredentials: true
+        },
+        data: jData,
 		type: "POST",
 		dataType : "json",
 		success: function( json ) {
@@ -154,7 +161,7 @@ function postBP() {
 			$("#errorAlert").fadeIn();
 		},
 	});
-};
+}
 
 function postItem() {
 	var code = document.getElementById("ItemCode");
@@ -166,7 +173,10 @@ function postItem() {
 
 	$.ajax({
 		url: SLServer+"Items",		
-		data: jData,
+		xhrFields: {
+            withCredentials: true
+        },
+        data: jData,
 		type: "POST",
 		dataType : "json",
 		success: function( json ) {
@@ -176,7 +186,7 @@ function postItem() {
 			$("#errorAlert").fadeIn();
 		},
 	});
-};
+}
 
 function getBP(list){
 	var filter = "";
@@ -185,20 +195,20 @@ function getBP(list){
 		var CardCode = document.getElementById("CardCode");
 		filter = "('"+CardCode.value+"')";
 	}
-
-	//https://ServiceLayer:port/BusinessParters('C002')
-	$.get( SLServer + "BusinessPartners" + filter, function() {
-		// if success do something
-	})
-	.done(function(json) {		
-		displayBP(json,list);
-	})
-
-	.fail(function() {
-		$("#errorAlert").fadeIn();
-	})
-	.always(function() {
-		//alert( "finished" );
+	
+	$.ajax({
+		url: SLServer + "BusinessPartners" + filter,		
+		xhrFields: {
+            withCredentials: true
+        },
+		type: "GET",
+		dataType : "json",
+		success: function( json ) {
+			displayBP(json,list);
+		},
+		error: function( xhr, status, errorThrown ) {
+			$("#errorAlert").fadeIn();
+		},
 	});
 }
 
@@ -210,37 +220,52 @@ function getItem(list){
 		filter = "('"+ItemCode.value+"')";
 	}
 
-	$.get( SLServer + "Items" + filter, function() {
-
-	})
-	.done(function(json) {
-		displayItem(json,list);
-	})
-
-	.fail(function() {
-		$("#errorAlert").fadeIn();
-	})
-	.always(function() {
-		//alert( "finished" );
+	$.ajax({
+		url: SLServer + "Items" + filter,		
+		xhrFields: {
+            withCredentials: true
+        },
+		type: "GET",
+		dataType : "json",
+		success: function( json ) {
+			displayItem(json,list);
+		},
+		error: function( xhr, status, errorThrown ) {
+			$("#errorAlert").fadeIn();
+		},
 	});
-
 }
 
 function getOrders(){
 
-	$.get( SLServer + "Orders", function() {
-
-	})
-	.done(function(json) {
-		displayOrders(json);
-	})
-
-	.fail(function() {
-		$("#errorAlert").fadeIn();
-	})
-	.always(function() {
-		//alert( "finished" );
+	$.ajax({
+		url: SLServer + "Orders",		
+		xhrFields: {
+            withCredentials: true
+        },
+		type: "GET",
+		dataType : "json",
+		success: function( json ) {
+			displayOrders(json);
+		},
+		error: function( xhr, status, errorThrown ) {
+			$("#errorAlert").fadeIn();
+		},
 	});
+	
+	//$.get( SLServer + "Orders", function() {
+
+	//})
+	//.done(function(json) {
+	//	displayOrders(json);
+	//})
+
+	//.fail(function() {
+	//	$("#errorAlert").fadeIn();
+	//})
+	//.always(function() {
+	//	//alert( "finished" );
+	//});
 
 }
 
@@ -352,9 +377,9 @@ function displayOrders(json){
 				"<td>"+json.value[i].DocTotal+"</td>"+
 
 		"</tr>");
-	};
+	}
 	displayJson(json);
-};
+}
 
 function displayJson(json){
 
