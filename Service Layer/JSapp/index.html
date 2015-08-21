@@ -7,271 +7,268 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link
-	href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css">
-<script type="text/javascript"
-	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="js/sl.js" defer type="text/javascript"></script>
-<script type="text/javascript"
-	src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-</head>
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head> 
 
 <body class="" draggable="true">
-	<div class="navbar navbar-default navbar-static-top">
-		<style>
+    <div class="navbar navbar-default navbar-static-top">
+        <style>
 .body {
-	padding-top: 70px
+    padding-top: 70px
 }
 </style>
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand"
-					href="http://scn.sap.com/community/business-one-sdk"
-					draggable="true">SAP Business One</a>
-			</div>
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li draggable="true"><a href="#" data-toggle="modal"
-						data-target="#information">+ Info</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="jumbotron" draggable="true">
-					<h1>Service Layer JS</h1>
-					<p>
-						B1 Service Layer implementation using Java Script. <br>Now
-						you can manipulate <a
-							href="http://www.sap.com/solution/sme/software/erp/small-business-management/overview/index.html">SAP
-							Business One</a> objects using <strong>also</strong>
-						JavaScript.&nbsp; <br>Service Layer is based on <a
-							href="http://www.odata.org">OData</a>, a standard protocol for
-						REST APIs
-					</p>
-					<a class="active btn btn-block btn-lg btn-success" id="connect"
-						data-toggle="modal" data-target="#connectModal">Start Now!</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container" id="inputOptions">
-		<div class="row">
-			<div class="col-md-4">
-				<form role="form-inline
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"
+                    href="http://scn.sap.com/community/business-one-sdk"
+                    draggable="true">SAP Business One</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li draggable="true"><a href="#" data-toggle="modal"
+                        data-target="#information">+ Info</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron" draggable="true">
+                    <h1>Service Layer JS</h1>
+                    <p>
+                        B1 Service Layer implementation using Java Script. <br>Now
+                        you can manipulate <a
+                            href="http://www.sap.com/solution/sme/software/erp/small-business-management/overview/index.html">SAP
+                            Business One</a> objects using <strong>also</strong>
+                        JavaScript.&nbsp; <br>Service Layer is based on <a
+                            href="http://www.odata.org">OData</a>, a standard protocol for
+                        REST APIs
+                    </p>
+                    <a class="active btn btn-block btn-lg btn-success" id="connect"
+                        data-toggle="modal" data-target="#connectModal">Start Now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="inputOptions">
+        <div class="row">
+            <div class="col-md-4">
+                <form role="form-inline
                       " class="form"
-					style="">
-					<div class="form-group" draggable="true">
-						<input class="form-control" id="CardCode" placeholder="BP Code"
-							type="text">
-					</div>
-					<div class="form-group">
-						<input class="form-control" id="CardName" placeholder="BP Name"
-							type="text">
-					</div>
-					<div class="form-group">
-						<select id="CardType" class="form-control">
-							<option>Lead</option>
-							<option>Supplier</option>
-							<option>Customer</option>
-						</select>
-					</div>
-					<button id="postBP" type="button" class="btn btn-primary btn-sm">Post
-						BP</button>
-					<button id="getBP" type="button" class="btn btn-sm btn-warning">Get
-						BP</button>
-				</form>
-			</div>
-			<div class="col-md-4">
-				<form role="form-inline
+                    style="">
+                    <div class="form-group" draggable="true">
+                        <input class="form-control" id="CardCode" placeholder="BP Code"
+                            type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="CardName" placeholder="BP Name"
+                            type="text">
+                    </div>
+                    <div class="form-group">
+                        <select id="CardType" class="form-control">
+                            <option>Lead</option>
+                            <option>Supplier</option>
+                            <option>Customer</option>
+                        </select>
+                    </div>
+                    <button id="postBP" type="button" class="btn btn-primary btn-sm">Post
+                        BP</button>
+                    <button id="getBP" type="button" class="btn btn-sm btn-warning">Get
+                        BP</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form role="form-inline
                       " class="form">
-					<div class="form-group" id="divICode">
-						<input class="form-control" id="ItemCode" placeholder="Item Code"
-							type="text">
-					</div>
-					<div class="form-group" id="divIName">
-						<input class="form-control" id="ItemName" placeholder="Item Name"
-							type="text">
-					</div>
-					<button id="postItem" type="button" class="btn btn-primary btn-sm">Post
-						ITEM</button>
-					<button id="getItem" type="button" class="btn btn-sm btn-warning">Get
-						ITEM</button>
-				</form>
-			</div>
-			<div class="col-md-4 text-center">
-				<p class="text-center">
-					<a type="button" class="btn btn-info btn-lg" id="getBPList">Get
-						BP List</a>
-				</p>
-				<p class="text-center">
-					<a class="btn btn-info btn-lg" id="getItemList">Get Items List</a>
-				</p>
-				<p>
-					<a class="btn btn-info btn-lg" id="getOrdersList">Get Sales
-						Orders List</a>
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div id="okAlert" class="alert alert-success">
-					<strong>Well done!</strong>The operation was performed
-					successfully!.
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div id="errorAlert" class="alert alert-danger" draggable="true">
-					<strong>Damm!</strong>Something bad happened. Action failed.
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="fade modal text-left" id="connectModal" tabindex="-1"
-		role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-		draggable="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel">Your B1 on HANA
-						Server information</h4>
-				</div>
-				<div class="modal-body">
-					<form role="form" action="" draggable="true">
-						<div class="form-group">
-							<label for="HanaServer">Service Layer Address</label> <input
-								type="text" class="form-control" id="HanaServer"
-								placeholder="ex: https://hanab1:50000/b1s/v1">
-						</div>
-						<div class="form-group">
-							<label for="UserName">B1 User Name</label> <input type="text"
-								class="form-control" id="UserName" placeholder="ex: manager">
-						</div>
-						<div class="form-group">
-							<label for="Password">B1 Password</label> <input type="password"
-								class="form-control" id="Password" placeholder="****">
-						</div>
-						<div class="form-group">
-							<label for="CompanyDB">B1 Company</label> <input type="text"
-								class="form-control" id="CompanyDB" placeholder="ex: SBODEMOBR">
-						</div>
-						<div class="modal-footer">
-							<a class="btn btn-primary" id="connectSL">Connect</a>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="information" draggable="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<p>Thank you for using this sample I hope you found that
-						usefull</p>
-					<p>You can find a lot of good information on the following
-						sources:</p>
-					<h4>
-						<a href="http://scn.sap.com/community/business-one-sdk">SAP
-							Business One SDK page on SCN</a>
-					</h4>
-					<h4>
-						<a href="http://scn.sap.com/docs/DOC-43522">SAP Business One
-							on HANA Landing</a>
-					</h4>
-					<h4>
-						<a href="http://twitter.com/ralphive">Follow me on twitter
-							@ralphive</a>
-					</h4>
-					<p>Sincerily</p>
-					<p></p>
-					<p>Ralph and the SAP Business One Solution Architect Team :)</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="notConnectedError">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="alert alert-danger alert-dismissable">
-						<strong>You are not connected!</strong> Do you mind?
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="connectedAlert">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="alert alert-success alert-dismissable">
-						<strong>Yeah!! We are connected!</strong> Lets make some REST
-						calls!
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="connectedError">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="alert alert-danger alert-dismissable">
-						<strong>Houston, we have a problem!</strong> Verify your server
-						information.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="fade modal" id="resulModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel" contenteditable="true">Call
-						Result</h4>
-				</div>
-				<div class="modal-body">
-					<div class="tabbable">
-						<ul class="nav nav-tabs">
-							<li class="active"><a href="#pane1" data-toggle="tab">Table</a>
-							</li>
-							<li><a href="#pane2" data-toggle="tab">JSON</a></li>
-						</ul>
-						<div class="tab-content">
-							<div id="pane1" class="tab-pane active">
-								<table id="resultTable" class="table">
-									<thead>
-									</thead>
-									<tbody>
+                    <div class="form-group" id="divICode">
+                        <input class="form-control" id="ItemCode" placeholder="Item Code"
+                            type="text">
+                    </div>
+                    <div class="form-group" id="divIName">
+                        <input class="form-control" id="ItemName" placeholder="Item Name"
+                            type="text">
+                    </div>
+                    <button id="postItem" type="button" class="btn btn-primary btn-sm">Post
+                        ITEM</button>
+                    <button id="getItem" type="button" class="btn btn-sm btn-warning">Get
+                        ITEM</button>
+                </form>
+            </div>
+            <div class="col-md-4 text-center">
+                <p class="text-center">
+                    <a type="button" class="btn btn-info btn-lg" id="getBPList">Get
+                        BP List</a>
+                </p>
+                <p class="text-center">
+                    <a class="btn btn-info btn-lg" id="getItemList">Get Items List</a>
+                </p>
+                <p>
+                    <a class="btn btn-info btn-lg" id="getOrdersList">Get Sales
+                        Orders List</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="okAlert" class="alert alert-success">
+                    <strong>Well done!</strong>The operation was performed
+                    successfully!.
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="errorAlert" class="alert alert-danger" draggable="true">
+                    <strong>Damm!</strong>Something bad happened. Action failed.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fade modal text-left" id="connectModal" tabindex="-1"
+        role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+        draggable="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Your B1 on HANA
+                        Server information</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form" action="" draggable="true">
+                        <div class="form-group">
+                            <label for="HanaServer">Service Layer Address</label> <input
+                                type="text" class="form-control" id="HanaServer"
+                                placeholder="ex: https://hanab1:50000/b1s/v1">
+                        </div>
+                        <div class="form-group">
+                            <label for="UserName">B1 User Name</label> <input type="text"
+                                class="form-control" id="UserName" placeholder="ex: manager">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">B1 Password</label> <input type="password"
+                                class="form-control" id="Password" placeholder="****">
+                        </div>
+                        <div class="form-group">
+                            <label for="CompanyDB">B1 Company</label> <input type="text"
+                                class="form-control" id="CompanyDB" placeholder="ex: SBODEMOBR">
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-primary" id="connectSL">Connect</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="information" draggable="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Thank you for using this sample I hope you found that
+                        usefull</p>
+                    <p>You can find a lot of good information on the following
+                        sources:</p>
+                    <h4>
+                        <a href="http://scn.sap.com/community/business-one-sdk">SAP
+                            Business One SDK page on SCN</a>
+                    </h4>
+                    <h4>
+                        <a href="http://scn.sap.com/docs/DOC-43522">SAP Business One
+                            on HANA Landing</a>
+                    </h4>
+                    <h4>
+                        <a href="http://twitter.com/ralphive">Follow me on twitter
+                            @ralphive</a>
+                    </h4>
+                    <p>Sincerily</p>
+                    <p></p>
+                    <p>Ralph and the SAP Business One Solution Architect Team :)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="notConnectedError">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-danger alert-dismissable">
+                        <strong>You are not connected!</strong> Do you mind?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="connectedAlert">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-success alert-dismissable">
+                        <strong>Yeah!! We are connected!</strong> Lets make some REST
+                        calls!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="connectedError">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="alert alert-danger alert-dismissable">
+                        <strong>Houston, we have a problem!</strong> Verify your server
+                        information.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fade modal" id="resulModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel" contenteditable="true">Call
+                        Result</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#pane1" data-toggle="tab">Table</a>
+                            </li>
+                            <li><a href="#pane2" data-toggle="tab">JSON</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="pane1" class="tab-pane active">
+                                <table id="resultTable" class="table">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
 
-									</tbody>
-								</table>
-							</div>
-							<div id="pane2" class="tab-pane">
-								<h4>JSON Return content</h4>
-								<pre class="jsonResult"></pre>
-							</div>
-						</div>
-						<!-- /.tab-content -->
-					</div>
-					<!-- /.tabbable -->
-				</div>
-			</div>
-		</div>
-	</div>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="pane2" class="tab-pane">
+                                <h4>JSON Return content</h4>
+                                <pre class="jsonResult"></pre>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- /.tabbable -->
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
